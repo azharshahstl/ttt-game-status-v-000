@@ -1,3 +1,4 @@
+require "pry"
 # Helper Method
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
@@ -21,10 +22,11 @@ end
 
 
 def full?(board)
-  !(board.include?(nil || " "))
+  !((board.include?(nil) || board.include?(" "))
  end
 
 def draw?(board)
+  #full? && !won?
     WIN_COMBINATIONS.each do |win_combination|
     
     if board[win_combination[0]] == "X" && board[win_combination[1]]  == "X" && board[win_combination[2]] == "X" && full?(board) == true
@@ -62,3 +64,6 @@ def winner(board)
   end
   return nil
 end
+
+binding.pry 
+puts "goodbye"
